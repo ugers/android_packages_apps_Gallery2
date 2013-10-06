@@ -288,6 +288,24 @@ public class MoviePlayer implements
         return position;
     }
 
+	public void replayVideo() {
+		mVideoView.setVideoURI(mUri);
+		mVideoView.seekTo(0);
+
+        String scheme = mUri.getScheme();
+        if ("http".equalsIgnoreCase(scheme) || "rtsp".equalsIgnoreCase(scheme)) {
+            mController.showLoading();
+            mHandler.removeCallbacks(mPlayingChecker);
+            mHandler.postDelayed(mPlayingChecker, 250);
+        } else {
+            mController.showPlaying();
+            mController.hide();
+        }
+
+        mController.showPaused();
+        setProgress();
+	}
+
     private void startVideo() {
         // For streams that we expect to be slow to start up, show a
         // progress spinner until playback starts.
