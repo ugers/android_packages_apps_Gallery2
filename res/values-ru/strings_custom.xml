@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="title_label" >"Настройки видео"</string>
+
+    <string name="gate_title" >"Субтитры переключения"</string>
+    <string name="select_title" >"Выбор субтитров"</string>
+    <string name="charset_title" >"Надпись кодирования"</string>
+    <string name="color_title" >"Цвет субтитров"</string>
+    <string name="charsize_title" >"Размер шрифта субтитров"</string>
+    <string name="offset_title" >"Надпись смещение"</string>
+    <string name="delay_title" >"Задержка субтитров"</string>
+    <string name="track_title" >"Треки"</string>
+    <string name="zoom_title" >"Режим масштабирования"</string>
+    <string name="mode3d_title" >"3D режим"</string>
+    <string name="repeat_title" >"Режим воспроизведения"</string>
+
+    <string name="confirm_button" >"Подтвердить"</string>
+
+  <string-array name="screen_select_entries">
+    <item >"Нет субтитров"</item>
+  </string-array>
+    <string-array name="screen_charset_entries">
+            <item>"Unicode(UTF-8)"</item>
+            <item>"Упрощенный китайский(GBK)"</item>
+            <item>"Традиционный китайский(Big5)"</item>
+            <item>"Корейский(EUC-KR)"</item>
+            <item>"Японский(Shift_JIS)"</item>
+            <item>"Yasufumi(TIS-620)"</item>
+            <item>"Кириллица(KOI8-R)"</item>
+            <item>"Кириллица(ISO-8859-5)"</item>
+            <item>"Кириллица(cp1251)"</item>
+            <item>"Unicode(UTF-16BE)"</item>
+            <item>"Unicode(UTF-16LE)"</item>
+            <item>"Западноевропейские(ISO-8859-1)"</item>
+            <item>"Западноевропейские(cp1254)"</item>
+            <item>"Центральной Европы(ISO-8859-2)"</item>
+            <item>"Центральной Европы(cp1250)"</item>
+            <item>"Южной Европы(ISO-8859-3)"</item>
+            <item>"Скандинавских языков(ISO-8859-4)"</item>
+            <item>"Арабский(ISO-8859-6)"</item>
+            <item>"Арабский(cp1256)"</item>
+            <item>"Греческий(ISO-8859-7)"</item>
+            <item>"Греческий(cp1253)"</item>
+            <item>"Иврит(ISO-8859-8)"</item>
+            <item>"Иврит(cp1255)"</item>
+            <item>"Турецкий(ISO-8859-9)"</item>
+            <item>"Турецкий(cp1252)"</item>
+            <item>"Вьетнамский(cp1258)"</item>
+  </string-array>
+
+    <string-array name="screen_offset_entries">
+        <item>"0"</item>
+        <item>"10"</item>
+        <item>"20"</item>
+        <item>"30"</item>
+        <item>"40"</item>
+        <item>"50"</item>
+        <item>"60"</item>
+    </string-array>
+
+    <string-array name="screen_3d_entries">
+        <item>"Рисунок 2D представлена левая"</item>
+        <item>"Рисунок 2D показывать верхнюю половину"</item>
+        <item>"2D показывать пользовательское"</item>
+        <item>"3D слева и справа"</item>
+        <item>"3D сверху и снизу"</item>
+        <item>"3D чересстрочный"</item>
+        <item>"3D чересстрочная линия"</item>
+   <!-- <item>"3D row interlace"</item> 
+        <item>"3D Up/Down anglagh(red blue)"</item>
+        <item>"3D Up/Down anglagh(red green)"</item>
+        <item>"3D Up/Down anglagh(red cyan)"</item>
+        <item>"3D Up/Down anglagh(full color)"</item>
+        <item>"3D Up/Down anglagh(half color)"</item>
+        <item>"3D Up/Down anglagh(the best)"</item>
+        <item>"3D Up/Down anglagh(yellow blue)"</item>
+        <item>"3D Left/Right anglagh(red blue)"</item>
+        <item>"3D Left/Right anglagh(red green)"</item>
+        <item>"3D Left/Right anglagh(red cyan)"</item>
+        <item>"3D Left/Right anglagh(full color)"</item>
+        <item>"3D Left/Right anglagh(half color)"</item>
+        <item>"3D Left/Right anglagh(the best)"</item>
+        <item>"3D Left/Right anglagh(yellow blue)"</item> -->
+    </string-array>
+
+    <string-array name="screen_zoom_entries">
+        <!-- Slide show zoom mode -->
+        <item>"Полноэкранное соотношение"</item>
+        <item>"Полноэкранное соотношение экрана"</item>
+        <item>"Оригинальный размер"</item>
+        <item>"4 / 3"</item>
+        <item>"16 / 9"</item>
+    </string-array>
+
+    <string-array name="screen_repeat_entries">
+        <!-- Slide show play mode -->
+        <item>"Повторить всё"</item>
+        <item>"Играть последовательно"</item>
+        <item>"Повторить один раз"</item>
+        <item>"Воспроизведение в случайном порядке"</item>
+    </string-array>
+
+    <string-array name="screen_track_entries">
+        <!-- Slide show no track -->
+        <item>ОТСУТСТВИЕ трека</item>
+    </string-array>
+        <string name="system_battery">"Батарея:"</string>
+        
+        <!-- OTA update definition below -->
+        <string name="update_sure">обновить</string>
+        <string name="update_cancel">отмена</string>
+        <string name="update_title">Совет по обновлению</string>
+        <string name="update_download_finish">полностью обновить, нажмите кнопку Начать установку</string>
+        <string name="update_download_ui">%s обновление...</string>
+        <string name="update_check_message">Проверка наличия обновлений...</string>
+        <string name="update_check_fail_message">обновления отсутствуют</string>
+        <string name="update_check_error_message">Не удалось выполнить обновление, проверьте интернет</string>
+        <string name="str_latest_version">У вас последняя версия!</string>
+        <string name="str_no_internet">Интернет не доступен !</string>
+        <string name="str_updating">Проверка наличия обновлений ...</string>    
+    
+</resources>
