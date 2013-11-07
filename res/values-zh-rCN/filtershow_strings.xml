@@ -18,6 +18,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="title_activity_filter_show" msgid="2036539130684382763">"照片编辑器"</string>
     <string name="cannot_load_image" msgid="5023634941212959976">"无法加载该图片！"</string>
+    <string name="save_image_failed">"保存失败，内存不足！"</string>
     <!-- no translation found for original_picture_text (3076213290079909698) -->
     <skip />
     <string name="original" msgid="3524493791230430897">"原图"</string>
