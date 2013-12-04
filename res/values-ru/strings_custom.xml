@@ -4,7 +4,7 @@
     <string name="title_label" >"Настройки видео"</string>
 
     <string name="gate_title" >"Субтитры переключения"</string>
-    <string name="select_title" >"Выбор субтитров"</string>
+    <string name="select_title" >"Субтитры:"</string>
     <string name="charset_title" >"Надпись кодирования"</string>
     <string name="color_title" >"Цвет субтитров"</string>
     <string name="charsize_title" >"Размер шрифта субтитров"</string>
@@ -15,7 +15,7 @@
     <string name="mode3d_title" >"3D режим"</string>
     <string name="repeat_title" >"Режим воспроизведения"</string>
 
-    <string name="confirm_button" >"Подтвердить"</string>
+    <string name="confirm_button" >"Принять"</string>
 
   <string-array name="screen_select_entries">
     <item >"Нет субтитров"</item>
@@ -60,9 +60,9 @@
     </string-array>
 
     <string-array name="screen_3d_entries">
-        <item>"Рисунок 2D представлена левая"</item>
-        <item>"Рисунок 2D показывать верхнюю половину"</item>
-        <item>"2D показывать пользовательское"</item>
+        <item>"2D левая половина"</item>
+        <item>"2D верхняя половина"</item>
+        <item>"2D пользовательское"</item>
         <item>"3D слева и справа"</item>
         <item>"3D сверху и снизу"</item>
         <item>"3D чересстрочный"</item>
@@ -86,8 +86,8 @@
 
     <string-array name="screen_zoom_entries">
         <!-- Slide show zoom mode -->
-        <item>"Полноэкранное соотношение"</item>
-        <item>"Полноэкранное соотношение экрана"</item>
+        <item>"Полноэкран.соотн."</item>
+        <item>"Полноэкран. соотн. экрана"</item>
         <item>"Оригинальный размер"</item>
         <item>"4 / 3"</item>
         <item>"16 / 9"</item>
@@ -103,7 +103,7 @@
 
     <string-array name="screen_track_entries">
         <!-- Slide show no track -->
-        <item>ОТСУТСТВИЕ трека</item>
+        <item>Трек отсутствует</item>
     </string-array>
         <string name="system_battery">"Батарея:"</string>
         
