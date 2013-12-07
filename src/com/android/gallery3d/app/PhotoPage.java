@@ -32,6 +32,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RelativeLayout;
@@ -789,7 +790,7 @@ public class PhotoPage extends ActivityState implements
         } else if (!mHaveImageEditor) {
             supportedOperations &= ~MediaObject.SUPPORT_EDIT;
         }
-        MenuExecutor.updateMenuOperation(mActivity.getAndroidContext(), menu, supportedOperations);
+        MenuExecutor.updateMenuOperation(menu, supportedOperations);
         mCurrentPhoto.getPanoramaSupport(mUpdatePanoramaMenuItemsCallback);
     }
 
@@ -1222,7 +1223,10 @@ public class PhotoPage extends ActivityState implements
             Intent intent = new Intent(Intent.ACTION_VIEW)
                     .setDataAndType(uri, "video/*")
                     .putExtra(Intent.EXTRA_TITLE, title)
-                    .putExtra(MovieActivity.KEY_TREAT_UP_AS_BACK, true);
+                    .putExtra(MovieActivity.KEY_TREAT_UP_AS_BACK, true)
+                    //add by Bevis, for VideoPlay to create playlist
+                    .putExtra(MediaStore.PLAYLIST_TYPE, MediaStore.PLAYLIST_TYPE_MEDIA_PROVIDER)
+                    .putExtra(MediaStore.EXTRA_FINISH_ON_COMPLETION, false);
             activity.startActivityForResult(intent, REQUEST_PLAY_VIDEO);
         } catch (ActivityNotFoundException e) {
             Toast.makeText(activity, activity.getString(R.string.video_err),
