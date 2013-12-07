@@ -415,12 +415,12 @@ public class MoviePlayer implements
                     playVideo();
                 }
                 return true;
-            case KEYCODE_MEDIA_PAUSE:
+            case KeyEvent.KEYCODE_MEDIA_PAUSE:
                 if (mVideoView.isPlaying()) {
                     pauseVideo();
                 }
                 return true;
-            case KEYCODE_MEDIA_PLAY:
+            case KeyEvent.KEYCODE_MEDIA_PLAY:
                 if (!mVideoView.isPlaying()) {
                     playVideo();
                 }
