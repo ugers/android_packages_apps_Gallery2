@@ -246,6 +246,9 @@ public class SaveCopyTask extends AsyncTask<ImagePreset, Void, Uri> {
         } catch (FileNotFoundException ex) {
             Log.w(LOGTAG, "Failed to save image!", ex);
             return null;
+        } catch (OutOfMemoryError ex) {
+            Log.w(LOGTAG, "Out Of Memory!", ex);
+            return null;
         }
     }
 
