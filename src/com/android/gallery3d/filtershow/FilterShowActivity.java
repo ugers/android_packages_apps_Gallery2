@@ -521,17 +521,28 @@ public class FilterShowActivity extends Activity implements OnItemClickListener,
     }
 
     public void completeSaveImage(Uri saveUri) {
-        if (mSharingImage && mSharedOutputFile != null) {
-            // Image saved, we unblock the content provider
-            Uri uri = Uri.withAppendedPath(SharedImageProvider.CONTENT_URI,
-                    Uri.encode(mSharedOutputFile.getAbsolutePath()));
-            ContentValues values = new ContentValues();
-            values.put(SharedImageProvider.PREPARE, false);
-            getContentResolver().insert(uri, values);
-        }
-        setResult(RESULT_OK, new Intent().setData(saveUri));
-        hideSavingProgress();
-        finish();
+    	if(saveUri == null) {
+    		hideSavingProgress();
+    		
+	        CharSequence text = getString(R.string.save_image_failed);
+	        Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+	        toast.show();
+
+			finish();
+    	} else {
+	        if (mSharingImage && mSharedOutputFile != null) {
+	            // Image saved, we unblock the content provider
+	            Uri uri = Uri.withAppendedPath(SharedImageProvider.CONTENT_URI,
+	                    Uri.encode(mSharedOutputFile.getAbsolutePath()));
+	            ContentValues values = new ContentValues();
+	            values.put(SharedImageProvider.PREPARE, false);
+	            getContentResolver().insert(uri, values);
+	        }
+	        setResult(RESULT_OK, new Intent().setData(saveUri));
+	        hideSavingProgress();
+	        finish(); 
+	    }
+
     }
 
     @Override
@@ -613,7 +624,7 @@ public class FilterShowActivity extends Activity implements OnItemClickListener,
                 HistoryAdapter adapter = mImageShow.getHistory();
                 int position = adapter.undo();
                 mImageShow.onItemClick(position);
-                mImageShow.showToast(getString(R.string.filtershow_undo_toast));
+                mImageShow.showToast("Undo");
                 invalidateViews();
                 return true;
             }
@@ -621,7 +632,7 @@ public class FilterShowActivity extends Activity implements OnItemClickListener,
                 HistoryAdapter adapter = mImageShow.getHistory();
                 int position = adapter.redo();
                 mImageShow.onItemClick(position);
-                mImageShow.showToast(getString(R.string.filtershow_redo_toast));
+                mImageShow.showToast("Redo");
                 invalidateViews();
                 return true;
             }
