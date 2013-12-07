@@ -86,7 +86,7 @@
 
     <string-array name="screen_zoom_entries">
         <!-- Slide show zoom mode -->
-        <item>"Полноэкран.соотн."</item>
+        <item>"Полноэкран.соотношение."</item>
         <item>"Полноэкран. соотн. экрана"</item>
         <item>"Оригинальный размер"</item>
         <item>"4 / 3"</item>
@@ -98,7 +98,7 @@
         <item>"Повторить всё"</item>
         <item>"Играть последовательно"</item>
         <item>"Повторить один раз"</item>
-        <item>"Воспроизведение в случайном порядке"</item>
+        <item>"Играть в произв. порядке"</item>
     </string-array>
 
     <string-array name="screen_track_entries">
