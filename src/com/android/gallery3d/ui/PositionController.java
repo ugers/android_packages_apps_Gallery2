@@ -1445,7 +1445,7 @@ class PositionController {
             if (mAnimationStartTime != NO_ANIMATION) return false;
             if (mAnimationKind == ANIM_KIND_SCROLL
                     && mListener.isHoldingDown()) return false;
-            if (mInScale) return false;
+            //if (mInScale) return false;
 
             Box b = mBoxes.get(0);
             float scaleMin = mExtraScalingRange ?
@@ -1622,7 +1622,7 @@ class PositionController {
                     && mListener.isHoldingDown()) return false;
             if (mAnimationKind == ANIM_KIND_DELETE
                     && mListener.isHoldingDelete()) return false;
-            if (mInScale && this == mBoxes.get(0)) return false;
+            //if (mInScale && this == mBoxes.get(0)) return false;
 
             int y = mCurrentY;
             float scale;

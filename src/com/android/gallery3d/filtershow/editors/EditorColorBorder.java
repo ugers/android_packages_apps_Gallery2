@@ -186,7 +186,8 @@ public class EditorColorBorder extends ParametricEditor  {
 
     @Override
     public void setUtilityPanelUI(View actionButton, View editControl) {
-        if (ParametricEditor.useCompact(mContext)) {
+		super.setUtilityPanelUI(actionButton, editControl);
+	/*	if (ParametricEditor.useCompact(mContext)) {
             super.setUtilityPanelUI(actionButton, editControl);
             return;
         }
@@ -196,6 +197,7 @@ public class EditorColorBorder extends ParametricEditor  {
         }
 
         mTabletUI = new EditorColorBorderTabletUI(this, mContext, editControl);
+        */
 
     }
 

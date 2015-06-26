@@ -29,7 +29,8 @@ import android.util.Log;
 // this receiver will be disabled, so it will not run again.
 public class DisableCameraReceiver extends BroadcastReceiver {
     private static final String TAG = "G:DisableCameraReceiver";
-    private static final boolean CHECK_BACK_CAMERA_ONLY = true;
+    private static final boolean CHECK_BACK_CAMERA_ONLY = false;  // false: we use either back-facing or front-facing camera. 
+                                                                  // true:  we use back-facing camera only.
     private static final String ACTIVITIES[] = {
         "com.android.camera.CameraLauncher",
     };

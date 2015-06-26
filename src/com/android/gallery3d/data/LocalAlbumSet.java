@@ -106,7 +106,7 @@ public class LocalAlbumSet extends MediaSet
             // Note: it will be faster if we only select media_type and bucket_id.
             //       need to test the performance if that is worth
             BucketEntry[] entries = BucketHelper.loadBucketEntries(
-                    jc, mApplication.getContentResolver(), mType);
+                    jc, mApplication.getContentResolver(), mType, mApplication.getAndroidContext());
 
             if (jc.isCancelled()) return null;
 

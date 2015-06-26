@@ -543,13 +543,6 @@ public class AlbumSetPage extends ActivityState implements
             inflater.inflate(R.menu.albumset, menu);
             boolean wasShowingClusterMenu = mShowClusterMenu;
             mShowClusterMenu = !inAlbum;
-            if (mShowClusterMenu != wasShowingClusterMenu) {
-                if (mShowClusterMenu) {
-                    mActionBar.enableClusterMenu(mSelectedAction, this);
-                } else {
-                    mActionBar.disableClusterMenu(true);
-                }
-            }
             boolean selectAlbums = !inAlbum &&
                     mActionBar.getClusterTypeAction() == FilterUtils.CLUSTER_BY_ALBUM;
             MenuItem selectItem = menu.findItem(R.id.action_select);
@@ -563,12 +556,19 @@ public class AlbumSetPage extends ActivityState implements
 
             Intent helpIntent = HelpUtils.getHelpIntent(activity);
 
-            MenuItem helpItem = menu.findItem(R.id.action_general_help);
-            helpItem.setVisible(helpIntent != null);
-            if (helpIntent != null) helpItem.setIntent(helpIntent);
+            //MenuItem helpItem = menu.findItem(R.id.action_general_help);
+            //helpItem.setVisible(helpIntent != null);
+            //if (helpIntent != null) helpItem.setIntent(helpIntent);
 
             mActionBar.setTitle(mTitle);
             mActionBar.setSubtitle(mSubtitle);
+            if (mShowClusterMenu != wasShowingClusterMenu) {
+                if (mShowClusterMenu) {
+                    mActionBar.enableClusterMenu(mSelectedAction, this);
+                } else {
+                    mActionBar.disableClusterMenu(true);
+                }
+            }
         }
         return true;
     }
@@ -614,10 +614,10 @@ public class AlbumSetPage extends ActivityState implements
                 PicasaSource.requestSync(activity);
                 return true;
             }
-            case R.id.action_settings: {
-                activity.startActivity(new Intent(activity, GallerySettings.class));
-                return true;
-            }
+            //case R.id.action_settings: {
+            //    activity.startActivity(new Intent(activity, GallerySettings.class));
+            //    return true;
+            // }
             default:
                 return false;
         }

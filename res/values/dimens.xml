@@ -13,7 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources> 
     <dimen name="hint_y_offset">64dp</dimen>
     <dimen name="pano_mosaic_surface_height">240dp</dimen>
     <dimen name="pano_review_button_width">70dp</dimen>
@@ -104,6 +104,9 @@
     <dimen name="camera_controls_size">0dip</dimen>
     <dimen name="camera_film_strip_gap">32dip</dimen>
 
+    <dimen name="mediaBottonWidth">71dp</dimen>
+    <dimen name="mediaBottonHeight">52dp</dimen>
+    
     <dimen name="appwidget_width">180dp</dimen>
     <dimen name="appwidget_height">180dp</dimen>
     <dimen name="stack_photo_width">160dp</dimen>

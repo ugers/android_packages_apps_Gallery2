@@ -38,6 +38,8 @@ import com.android.gallery3d.data.MediaSet;
 import com.android.gallery3d.data.Path;
 import com.android.gallery3d.picasasource.PicasaSource;
 import com.android.gallery3d.util.GalleryUtils;
+import com.android.gallery3d.app.Update;
+import com.android.gallery3d.app.AppConfig;
 
 public final class GalleryActivity extends AbstractGalleryActivity implements OnCancelListener {
     public static final String EXTRA_SLIDESHOW = "slideshow";
@@ -53,6 +55,8 @@ public final class GalleryActivity extends AbstractGalleryActivity implements On
 
     private static final String TAG = "GalleryActivity";
     private Dialog mVersionCheckDialog;
+    private static final boolean manual = false;
+    private Update mFirmwareUpdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +76,25 @@ public final class GalleryActivity extends AbstractGalleryActivity implements On
         } else {
             initializeByIntent();
         }
+
+	checkFirmwareUpdate(false);
+    }
+
+    private void checkFirmwareUpdate(boolean manual) {
+	long lastCheckTime = -1;
+	long currTime = System.currentTimeMillis();
+	long checkPeriod;
+	
+	lastCheckTime = AppConfig.getInstance(this).getLong(AppConfig.LAST_UPDATE_TIME, lastCheckTime);
+	checkPeriod = currTime - lastCheckTime;
+	
+//		Log.v(TAG, "check firmware update currTime:" + currTime + 
+//				" lastCheckTime:" + lastCheckTime + " checkPeriod:"+checkPeriod);
+	
+	if(manual || lastCheckTime == -1 || checkPeriod > 48*3600*1000 || checkPeriod < 0) {
+		mFirmwareUpdate = new Update(this, currTime, manual);
+		mFirmwareUpdate.start();
+	}
     }
 
     private void initializeByIntent() {
@@ -223,7 +246,6 @@ public final class GalleryActivity extends AbstractGalleryActivity implements On
                     }
                 }
 
-                data.putBoolean("SingleItemOnly", singleItemOnly);
                 getStateManager().startState(SinglePhotoPage.class, data);
             }
         }

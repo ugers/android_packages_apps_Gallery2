@@ -257,7 +257,8 @@ public abstract class UploadedTexture extends BasicTexture {
                         canvas.texSubImage2D(this, 0, mBorder + bHeight, line, format, type);
                     }
                 }
-            } finally {
+            }catch(Exception e){
+            }finally {
                 freeBitmap();
             }
             // Update texture state.

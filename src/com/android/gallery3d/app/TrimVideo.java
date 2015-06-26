@@ -345,12 +345,6 @@ public class TrimVideo extends Activity implements
     }
 
     @Override
-    public boolean onIsRTSP() {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
     public void onReplay() {
         mVideoView.seekTo(mTrimStartTime);
         playVideo();

@@ -945,17 +945,28 @@ public class FilterShowActivity extends FragmentActivity implements OnItemClickL
     }
 
     public void completeSaveImage(Uri saveUri) {
-        if (mSharingImage && mSharedOutputFile != null) {
-            // Image saved, we unblock the content provider
-            Uri uri = Uri.withAppendedPath(SharedImageProvider.CONTENT_URI,
-                    Uri.encode(mSharedOutputFile.getAbsolutePath()));
-            ContentValues values = new ContentValues();
-            values.put(SharedImageProvider.PREPARE, false);
-            getContentResolver().insert(uri, values);
-        }
-        setResult(RESULT_OK, new Intent().setData(saveUri));
-        hideSavingProgress();
-        finish();
+    	if(saveUri == null) {
+    		hideSavingProgress();
+    		
+	        CharSequence text = getString(R.string.save_image_failed);
+	        Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+	        toast.show();
+
+			finish();
+    	} else {
+	        if (mSharingImage && mSharedOutputFile != null) {
+	            // Image saved, we unblock the content provider
+	            Uri uri = Uri.withAppendedPath(SharedImageProvider.CONTENT_URI,
+	                    Uri.encode(mSharedOutputFile.getAbsolutePath()));
+	            ContentValues values = new ContentValues();
+	            values.put(SharedImageProvider.PREPARE, false);
+	            getContentResolver().insert(uri, values);
+	        }
+	        setResult(RESULT_OK, new Intent().setData(saveUri));
+	        hideSavingProgress();
+	        finish(); 
+	    }
+
     }
 
     @Override

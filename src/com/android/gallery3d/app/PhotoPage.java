@@ -33,6 +33,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -1048,7 +1049,11 @@ public abstract class PhotoPage extends ActivityState implements
                 Bundle data = new Bundle();
                 data.putString(SlideshowPage.KEY_SET_PATH, mMediaSet.getPath().toString());
                 data.putString(SlideshowPage.KEY_ITEM_PATH, path.toString());
-                data.putInt(SlideshowPage.KEY_PHOTO_INDEX, currentIndex);
+				String camera_dir = "/filter/delete/{/combo/item/";
+				if(mMediaSet.getPath().toString().indexOf(camera_dir) > -1)
+                	data.putInt(SlideshowPage.KEY_PHOTO_INDEX, currentIndex-1);
+				else
+					data.putInt(SlideshowPage.KEY_PHOTO_INDEX, currentIndex);
                 data.putBoolean(SlideshowPage.KEY_REPEAT, true);
                 mActivity.getStateManager().startStateForResult(
                         SlideshowPage.class, REQUEST_SLIDESHOW, data);
@@ -1080,20 +1085,13 @@ public abstract class PhotoPage extends ActivityState implements
                 }
                 return true;
             }
-            case R.id.action_mute: {
-                final String mime = MediaFile.getMimeTypeForFile(current.getFilePath());
-                // Can only mute mp4, mpeg4 and 3gp
-                if ("video/mp4".equals(mime) || "video/mpeg4".equals(mime)
-                            || "video/3gpp".equals(mime) || "video/3gpp2".equals(mime)) {
-                    MuteVideo muteVideo = new MuteVideo(current.getFilePath(),
-                            manager.getContentUri(path), mActivity);
-                    muteVideo.muteInBackground();
-                } else {
-                    Toast.makeText(mActivity, mActivity.getString(R.string.video_mute_err),
-                            Toast.LENGTH_SHORT).show();
-                }
+         /*   case R.id.action_mute: {
+                MuteVideo muteVideo = new MuteVideo(current.getFilePath(),
+                        manager.getContentUri(path), mActivity);
+                muteVideo.muteInBackground();
                 return true;
             }
+			*/
             case R.id.action_edit: {
                 launchPhotoEditor();
                 return true;
@@ -1256,7 +1254,10 @@ public abstract class PhotoPage extends ActivityState implements
             Intent intent = new Intent(Intent.ACTION_VIEW)
                     .setDataAndType(uri, "video/*")
                     .putExtra(Intent.EXTRA_TITLE, title)
-                    .putExtra(MovieActivity.KEY_TREAT_UP_AS_BACK, true);
+                    .putExtra(MovieActivity.KEY_TREAT_UP_AS_BACK, true)
+                    //add by Bevis, for VideoPlay to create playlist
+                    .putExtra(MediaStore.PLAYLIST_TYPE, MediaStore.PLAYLIST_TYPE_MEDIA_PROVIDER)
+                    .putExtra(MediaStore.EXTRA_FINISH_ON_COMPLETION, false);
             activity.startActivityForResult(intent, REQUEST_PLAY_VIDEO);
         } catch (ActivityNotFoundException e) {
             Toast.makeText(activity, activity.getString(R.string.video_err),

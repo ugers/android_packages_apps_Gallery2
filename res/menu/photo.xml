@@ -63,9 +63,9 @@
     <item android:id="@+id/action_trim"
             android:title="@string/trim_action"
             android:showAsAction="never" />
-    <item android:id="@+id/action_mute"
+    <!--item android:id="@+id/action_mute"
             android:title="@string/mute_action"
-            android:showAsAction="never" />
+            android:showAsAction="never" / -->
     <item android:id="@+id/action_setas"
             android:title="@string/set_image"
             android:showAsAction="never" />

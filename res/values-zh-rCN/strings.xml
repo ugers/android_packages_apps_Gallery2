@@ -16,7 +16,32 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="1928079047368929634">"图库"</string>
+    <string name="Brightness">亮度</string>
+    <string name="Volume">音量</string>
+    <string name="app_name" msgid="1928079047368929634">"超清播放器"</string>
+
+    
+    <string name="connect_net_fail_message">"连接不上网络，请检查网络。检查更新失败"</string>
+	<string name="update_title">"应用更新提示"</string>
+	<string name="update_massege">"发现应用新版本，是否立即更新？"</string>
+	<string name="update_now">"确定"</string>
+	<string name="update_late">"取消"</string>
+	<string name="current_version">"当前版本： %s"</string>
+	<string name="new_version">"最新版本：%s"</string>
+	<string name="download_massege">"正在下载请稍候..."</string>
+	<string name="fail_massege">下载失败，请检查网络</string>
+	<string name="allow_update_notice">打开更新提示</string>
+	<string name="allow_update_massege">系统已设置为允许更新提示</string>
+	<string name="close_update_notice">关闭更新提示</string>
+	<string name="close_update_massege">系统已设置为关闭更新提示</string>
+	<string name="dialog_update_title">安装提示！</string>
+	<string name="dialog_update_masege">发现一个功能更加强大的播放器，是否要下载安装?</string>
+	<string name="dialog_update_checkbox">不再提示</string>
+	<string name="progress_update_massege">正在下载请稍后...</string>
+	<string name="install_massege">上次下载的apk没有安装，现在是否需要安装？</string>
+	<string name="install_title">安装提示</string>
+	<string name="download_fail_massage">下载失败，请检查网络</string>
+    
     <string name="gadget_title" msgid="259405922673466798">"相框"</string>
     <string name="details_ms" msgid="940634969189855292">"%1$02d:%2$02d"</string>
     <string name="details_hms" msgid="3215779248094151255">"%1$d:%2$02d:%3$02d"</string>
@@ -206,6 +231,121 @@
     <string name="pano_progress_text" msgid="1586851614586678464">"正在渲染全景图"</string>
     <string name="save" msgid="613976532235060516">"保存"</string>
     <string name="ingest_scanning" msgid="1062957108473988971">"正在扫描内容..."</string>
+    <string name="title_label" >"视频设置"</string>
+
+    <string name="gate_title" >"字幕开关"</string>
+    <string name="select_title" >"字幕选择"</string>
+    <string name="charset_title" >"字幕编码"</string>
+    <string name="color_title" >"字幕颜色"</string>
+    <string name="charsize_title" >"字幕字体大小"</string>
+    <string name="offset_title" >"字幕偏移"</string>
+    <string name="delay_title" >"字幕延时"</string>
+    <string name="track_title" >"音轨"</string>
+    <string name="zoom_title" >"缩放模式"</string>
+    <string name="mode3d_title" >"3D模式"</string>
+    <string name="repeat_title" >"播放模式"</string>
+
+    <string name="confirm_button" >"确定"</string>
+  <string-array name="screen_select_entries">
+    <item >"无字幕"</item>
+  </string-array>
+  <string-array name="screen_charset_entries">
+    	<item>"Unicode(UTF-8)"</item>
+    	<item>"简体中文(GBK)"</item>
+    	<item>"繁体中文(Big5)"</item>
+    	<item>"韩文(EUC-KR)"</item>
+    	<item>"日文(Shift_JIS)"</item>
+    	<item>"泰文(TIS-620)"</item>
+    	<item>"西里尔文(KOI8-R)"</item>
+    	<item>"西里尔文(ISO-8859-5)"</item>
+    	<item>"西里尔文(cp1251)"</item>
+    	<item>"Unicode(UTF-16BE)"</item>
+    	<item>"Unicode(UTF-16LE)"</item>
+    	<item>"西欧语系(ISO-8859-1)"</item>
+    	<item>"西欧语系(cp1254)"</item>
+    	<item>"中欧语系(ISO-8859-2)"</item>
+    	<item>"中欧语系(cp1250)"</item>
+    	<item>"南欧语系(ISO-8859-3)"</item>
+    	<item>"北欧语系(ISO-8859-4)"</item>
+    	<item>"阿拉伯文(ISO-8859-6)"</item>
+    	<item>"阿拉伯文(cp1256)"</item>
+    	<item>"希腊语(ISO-8859-7)"</item>
+    	<item>"希腊语(cp1253)"</item>
+    	<item>"希伯来文(ISO-8859-8)"</item>
+    	<item>"希伯来文(cp1255)"</item>
+    	<item>"土耳其文(ISO-8859-9)"</item>
+    	<item>"土耳其文(cp1252)"</item>
+    	<item>"越南文(cp1258)"</item>
+  </string-array>
+  <string-array name="screen_offset_entries">
+        <item>"0"</item>
+        <item>"10"</item>
+        <item>"20"</item>
+        <item>"30"</item>
+        <item>"40"</item>
+        <item>"50"</item>
+        <item>"60"</item>
+    </string-array>
+
+    <string-array name="screen_3d_entries">
+        <item>"2D显示左半图"</item>
+        <item>"2D显示上半图"</item>
+        <item>"2D显示原图"</item>
+        <item>"3D左右"</item>
+        <item>"3D上下"</item>
+        <item>"3D交错"</item>
+        <item>"3D行交错"</item>
+       <!-- <item>"3D列交错"</item> -->
+        <item>"左右分色(红蓝)"</item>
+        <item>"左右分色(红绿)"</item>
+        <item>"左右分色(红青)"</item>
+        <item>"左右分色(全色)"</item>
+        <item>"左右分色(半色)"</item>
+        <item>"左右分色(最佳)"</item>
+        <item>"左右分色(黄蓝)"</item>
+        <item>"上下分色(红蓝)"</item>
+        <item>"上下分色(红绿)"</item>
+        <item>"上下分色(红青)"</item>
+        <item>"上下分色(全色)"</item>
+        <item>"上下分色(半色)"</item>
+        <item>"上下分色(最佳)"</item>
+        <item>"上下分色(黄蓝)"</item>
+    </string-array>
+
+    <string-array name="screen_zoom_entries">
+        <!-- Slide show zoom mode -->
+        <item>"全屏(按视频比例)"</item>
+        <item>"全屏(按屏幕比例)"</item>
+        <item>"原始大小"</item>
+        <item>"4 / 3"</item>
+        <item>"16 / 9"</item>
+    </string-array>
+
+    <string-array name="screen_repeat_entries">
+        <!-- Slide show play mode -->
+        <item>"全部循环"</item>
+        <item>"顺序播放"</item>
+        <item>"单曲循环"</item>
+        <item>"随机播放"</item>
+    </string-array>
+
+	<string-array name="screen_track_entries">
+		<item >"无音轨"</item>
+	</string-array>
+    <string name="system_battery">"电量:"</string>
+        
+	<!-- OTA update definition below -->
+    <string name="update_sure">立即更新</string>
+    <string name="update_cancel">以后再说</string>
+    <!--<string name="update_title">更新提示</string>-->
+    <string name="update_download_finish">更新下载完成，请点击安装</string>
+    <string name="update_download_ui">%s正在下载中...</string>
+    <string name="update_check_message">正在检查更新...</string>
+    <string name="update_check_fail_message">没发现新版本</string>
+    <string name="update_check_error_message">更新版本失败，请检查网络</string>
+    <string name="str_latest_version">你已经是最新版本！</string>
+    <string name="str_no_internet">你的设备没有联网!</string>
+    <string name="str_updating">正在检查更新。。。</string>
   <plurals name="ingest_number_of_items_scanned">
     <item quantity="zero" msgid="2623289390474007396">"已扫描%1$d项"</item>
     <item quantity="one" msgid="4340019444460561648">"已扫描%1$d项"</item>
@@ -225,8 +365,8 @@
     <string name="no_storage" product="default" msgid="5137703033746873624">"使用相机前请先插入 SD 卡。"</string>
     <string name="preparing_sd" product="nosdcard" msgid="6104019983528341353">"正在准备 USB 存储设备..."</string>
     <string name="preparing_sd" product="default" msgid="2914969119574812666">"正在准备 SD 卡..."</string>
-    <string name="access_sd_fail" product="nosdcard" msgid="8147993984037859354">"无法使用USB存储设备。"</string>
-    <string name="access_sd_fail" product="default" msgid="1584968646870054352">"无法使用SD卡。"</string>
+    <string name="access_sd_fail" product="nosdcard" msgid="8147993984037859354">"无法访问 USB 存储设备。"</string>
+    <string name="access_sd_fail" product="default" msgid="1584968646870054352">"无法访问 SD 卡。"</string>
     <string name="review_cancel" msgid="8188009385853399254">"取消"</string>
     <string name="review_ok" msgid="1156261588693116433">"完成"</string>
     <string name="time_lapse_title" msgid="4360632427760662691">"延时录制"</string>

@@ -15,7 +15,9 @@
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">Gallery</string>
+    <string name="Brightness">Brightness</string>
+    <string name="Volume">Volume</string>
+    <string name="app_name">UHD Player</string>
     <!-- Title for picture frame gadget to show in list of all available gadgets -->
     <string name="gadget_title">Picture frame</string>
 
@@ -1096,4 +1098,148 @@ CHAR LIMIT = NONE] -->
         <item quantity="one">%1$d photo</item>
         <item quantity="other">%1$d photos</item>
     </plurals>
+     <!-- The subtitle setting title -->
+    <string name="title_label">Video settings</string>
+
+    <string name="gate_title" >"Subtilte gate"</string>
+    <string name="select_title" >"Subtilte select"</string>
+    <string name="charset_title" >"Subtilte charset"</string>
+    <string name="color_title" >"Subtitle color"</string>
+    <string name="charsize_title" >"Subtilte char size"</string>
+    <string name="offset_title" >"Subtilte offset"</string>
+    <string name="delay_title" >"Subtilte delay"</string>
+    <string name="zoom_title" >"Zoom mode"</string>
+    <string name="mode3d_title" >"3D mode"</string>
+    <string name="track_title" >"Video track"</string>
+    <string name="repeat_title" >"Play mode"</string>
+
+    <string name="confirm_button" >"Confirm"</string>
+
+    <string-array name="screen_select_entries">
+        <!-- Slide show no subtitle -->
+        <item>NO subtitle</item>
+    </string-array>
+
+    <!-- Slide show subtitle charset -->
+    <string-array name="screen_charset_entries">
+    	<item>Unicode(UTF-8)</item>
+    	<item>Simplified Chinese(GBK)</item>
+    	<item>Traditional Chinese(Big5)</item>
+    	<item>Korean(EUC-KR)</item>
+    	<item>Japanese(Shift_JIS)</item>
+    	<item>Thai(TIS-620)</item>
+    	<item>Cyrillic(KOI8-R)</item>
+    	<item>Cyrillic(ISO-8859-5)</item>
+    	<item>Cyrillic(cp1251)</item>
+    	<item>Unicode(UTF-16BE)</item>
+    	<item>Unicode(UTF-16LE)</item>
+    	<item>Western Europe(ISO-8859-1)</item>
+    	<item>Western language(cp1254)</item>
+    	<item>Central Europe(ISO-8859-2)</item>
+    	<item>Central Europe(cp1250)</item>
+    	<item>Southern Europe(ISO-8859-3)</item>
+    	<item>Northern Europe(ISO-8859-4)</item>
+    	<item>Arabic(ISO-8859-6)</item>
+    	<item>Arabic(cp1256)</item>
+    	<item>Greek(ISO-8859-7)</item>
+    	<item>Greek(cp1253)</item>
+    	<item>Hebrew(ISO-8859-8)</item>
+    	<item>Hebrew(cp1255)</item>
+    	<item>Turkish(ISO-8859-9)</item>
+    	<item>Turkish(cp1252)</item>
+    	<item>Vietnamese(cp1258)</item>
+    </string-array>
+
+    <!-- Slide show subtitle offset -->
+    <string-array name="screen_offset_entries">
+        <item>0</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+    </string-array>
+
+    <string-array name="screen_3d_entries">
+        <item>"2D show half of left"</item>
+        <item>"2D show half of top"</item>
+        <item>"2D show custom"</item>
+        <item>"3D left and right"</item>
+        <item>"3D top and bottom"</item>
+        <item>"3D interlace"</item>
+        <item>"3D line interlace"</item>
+       <!-- <item>"3D row interlace"</item> -->
+        <item>"3D Up/Down anglagh(red blue)"</item>
+        <item>"3D Up/Down anglagh(red green)"</item>
+        <item>"3D Up/Down anglagh(red cyan)"</item>
+        <item>"3D Up/Down anglagh(full color)"</item>
+        <item>"3D Up/Down anglagh(half color)"</item>
+        <item>"3D Up/Down anglagh(the best)"</item>
+        <item>"3D Up/Down anglagh(yellow blue)"</item>
+        <item>"3D Left/Right anglagh(red blue)"</item>
+        <item>"3D Left/Right anglagh(red green)"</item>
+        <item>"3D Left/Right anglagh(red cyan)"</item>
+        <item>"3D Left/Right anglagh(full color)"</item>
+        <item>"3D Left/Right anglagh(half color)"</item>
+        <item>"3D Left/Right anglagh(the best)"</item>
+        <item>"3D Left/Right anglagh(yellow blue)"</item>
+    </string-array>
+    
+    <string-array name="screen_zoom_entries">
+        <!-- Slide show zoom mode -->
+        <item>"Full screen video ratio"</item>
+        <item>"Full screen screen ratio"</item>
+        <item>"Origin size"</item>
+        <item>"4 / 3"</item>
+        <item>"16 / 9"</item>
+    </string-array>
+    
+    <string-array name="screen_repeat_entries">
+        <!-- Slide show play mode -->
+        <item>"Repeat all"</item>
+        <item>"Sequence play"</item>
+        <item>"Repeat one"</item>
+        <item>"Random play"</item>
+    </string-array>
+    
+    <string-array name="screen_track_entries">
+        <!-- Slide show no track -->
+        <item>NO track</item>
+    </string-array>
+	<string name="system_battery">"Battery:</string>
+	
+	<string name="connect_net_fail_message">"Connecting fails, please check your network setting. Update checking fails."</string>
+	<!--<string name="update_title">"Update notice"</string>-->
+	<string name="update_massege">"New version is available, do you want to update now?"</string>
+	<string name="update_now">"select"</string>
+	<string name="update_late">"delect"</string>
+	<string name="current_version">"urrent version: %s"</string>
+	<string name="new_version">"New version: %s"</string>
+	<string name="download_massege">"Loading, please wait......"</string>
+	<string name="fail_massege">Download fails, please check your network setting.</string>
+	<string name="allow_update_notice">open the update notice</string>
+	<string name="allow_update_massege">The system is set to "update indication enable"</string>
+	<string name="close_update_notice">Close the update notice</string>
+	<string name="close_update_massege">The system is set to "update indication disable</string>
+	<string name="dialog_update_title">Installation notice!</string>
+	<string name="dialog_update_masege">A more powerful player is found, do you want to install now?</string>
+	<string name="dialog_update_checkbox">No longer ask</string>
+	<string name="progress_update_massege">Loading, please wait......</string>
+	<string name="install_massege">The APK downloaded last time has not been installed yet,do you want to install now?</string>
+	<string name="install_title">Installation notice</string>
+	<string name="download_fail_massage"> Download fails, please check your network setting.</string>
+
+	<string name="update_sure">update</string>
+	<string name="update_cancel">cancel</string>
+	<string name="update_title">update tips</string>
+	<string name="update_download_finish">update completely, click start install</string>
+	<string name="update_download_ui">%s is update...</string>
+	<string name="update_check_message">checking update...</string>
+	<string name="update_check_fail_message">no found new version</string>
+	<string name="update_check_error_message">update failed, please check network</string>
+
+	<string name="str_latest_version">You have the latest version!</string>
+	<string name="str_no_internet">Internet not available !</string>
+	<string name="str_updating">Checking for updates ...</string>	 
 </resources>

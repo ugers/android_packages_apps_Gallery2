@@ -184,8 +184,8 @@ public class MenuExecutor {
         setMenuItemVisible(menu, R.id.action_rotate_ccw, supportRotate);
         setMenuItemVisible(menu, R.id.action_rotate_cw, supportRotate);
         setMenuItemVisible(menu, R.id.action_crop, supportCrop);
-        setMenuItemVisible(menu, R.id.action_trim, supportTrim);
-        setMenuItemVisible(menu, R.id.action_mute, supportMute);
+        setMenuItemVisible(menu, R.id.action_trim, false);
+        //setMenuItemVisible(menu, R.id.action_mute, supportMute);
         // Hide panorama until call to updateMenuForPanorama corrects it
         setMenuItemVisible(menu, R.id.action_share_panorama, false);
         setMenuItemVisible(menu, R.id.action_share, supportShare);

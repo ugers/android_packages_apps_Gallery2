@@ -269,11 +269,7 @@ class LocalSource extends MediaSource {
 
     @Override
     public void pause() {
-        // Monkey may kill or disable the MediaStorage Application From Setting.
-        // In this case, NullPointerException will occur for mClient is null.
-        if (mClient != null) {
-            mClient.release();
-            mClient = null;
-        }
+        mClient.release();
+        mClient = null;
     }
 }

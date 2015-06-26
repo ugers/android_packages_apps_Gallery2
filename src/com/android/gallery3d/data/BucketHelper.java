@@ -11,6 +11,10 @@ import android.provider.MediaStore.Images.ImageColumns;
 import android.provider.MediaStore.Video;
 import android.util.Log;
 
+import android.os.Environment;
+import android.os.storage.StorageManager;
+import android.content.Context;
+
 import com.android.gallery3d.common.ApiHelper;
 import com.android.gallery3d.common.Utils;
 import com.android.gallery3d.util.ThreadPool.JobContext;
@@ -45,12 +49,14 @@ class BucketHelper {
     private static final String[] PROJECTION_BUCKET = {
             ImageColumns.BUCKET_ID,
             FileColumns.MEDIA_TYPE,
-            ImageColumns.BUCKET_DISPLAY_NAME};
+            ImageColumns.BUCKET_DISPLAY_NAME,
+            ImageColumns.DATA};
 
     // The indices should match the above projections.
     private static final int INDEX_BUCKET_ID = 0;
     private static final int INDEX_MEDIA_TYPE = 1;
     private static final int INDEX_BUCKET_NAME = 2;
+	private static final int INDEX_MEDIA_PATH = 3;
 
     // We want to order the albums by reverse chronological order. We abuse the
     // "WHERE" parameter to insert a "GROUP BY" clause into the SQL statement.
@@ -76,7 +82,8 @@ class BucketHelper {
     private static final String[] PROJECTION_BUCKET_IN_ONE_TABLE = {
             ImageColumns.BUCKET_ID,
             "MAX(datetaken)",
-            ImageColumns.BUCKET_DISPLAY_NAME};
+            ImageColumns.BUCKET_DISPLAY_NAME,
+            ImageColumns.DATA};
 
     // We keep the INDEX_BUCKET_ID and INDEX_BUCKET_NAME the same as
     // PROJECTION_BUCKET so we can reuse the values defined before.
@@ -86,11 +93,13 @@ class BucketHelper {
     private static final String BUCKET_GROUP_BY_IN_ONE_TABLE = "1) GROUP BY (1";
 
     public static BucketEntry[] loadBucketEntries(
-            JobContext jc, ContentResolver resolver, int type) {
+            JobContext jc, ContentResolver resolver, int type, Context context) {
+		StorageManager mStorageManager = (StorageManager) context.getSystemService(context.STORAGE_SERVICE);
+	
         if (ApiHelper.HAS_MEDIA_PROVIDER_FILES_TABLE) {
-            return loadBucketEntriesFromFilesTable(jc, resolver, type);
+            return loadBucketEntriesFromFilesTable(jc, resolver, type, context);
         } else {
-            return loadBucketEntriesFromImagesAndVideoTable(jc, resolver, type);
+            return loadBucketEntriesFromImagesAndVideoTable(jc, resolver, type, context);
         }
     }
 
@@ -121,7 +130,7 @@ class BucketHelper {
     }
 
     private static BucketEntry[] loadBucketEntriesFromImagesAndVideoTable(
-            JobContext jc, ContentResolver resolver, int type) {
+            JobContext jc, ContentResolver resolver, int type, Context context) {
         HashMap<Integer, BucketEntry> buckets = new HashMap<Integer, BucketEntry>(64);
         if ((type & MediaObject.MEDIA_TYPE_IMAGE) != 0) {
             updateBucketEntriesFromTable(
@@ -143,7 +152,8 @@ class BucketHelper {
     }
 
     private static BucketEntry[] loadBucketEntriesFromFilesTable(
-            JobContext jc, ContentResolver resolver, int type) {
+            JobContext jc, ContentResolver resolver, int type, Context context) {
+            
         Uri uri = getFilesContentUri();
 
         Cursor cursor = resolver.query(uri,
@@ -166,7 +176,15 @@ class BucketHelper {
                 if ((typeBits & (1 << cursor.getInt(INDEX_MEDIA_TYPE))) != 0) {
                     BucketEntry entry = new BucketEntry(
                             cursor.getInt(INDEX_BUCKET_ID),
-                            cursor.getString(INDEX_BUCKET_NAME));
+                            cursor.getString(INDEX_BUCKET_NAME));	
+					/*Begin (Modified by Michael. 2014.06.11)*/	
+					/* removed residual images*/
+			   	    String path = cursor.getString(INDEX_MEDIA_PATH);
+			        if(false == isExtStorageExisted(context, path)){
+			            Log.d(TAG, "Filter Invalid Media File Path: " + path);
+			            continue;
+			        }
+					/*End (Modified by Michael. 2014.06.11)*/
                     if (!buffer.contains(entry)) {
                         buffer.add(entry);
                     }
@@ -178,6 +196,69 @@ class BucketHelper {
         }
         return buffer.toArray(new BucketEntry[buffer.size()]);
     }
+
+	private static boolean isExtStorageExisted(Context context, String path){
+
+	    boolean result = true;
+
+		StorageManager mStorageManager = (StorageManager) context.getSystemService(context.STORAGE_SERVICE);
+		String[] list = mStorageManager.getVolumePaths();
+
+		ArrayList<String> mExtsdList = new ArrayList<String>();
+	    ArrayList<String> mUsbList = new ArrayList<String>();
+		
+		for(int i = 0; i < list.length; i++)
+		{
+		    //Log.d(TAG, "i " + i + "list[i] "+ list[i]);
+			if(list[i].contains("extsd")){
+				//Log.d(TAG, "extsd i " + i + "list[i] "+ list[i]);
+				mExtsdList.add(list[i]);
+			}else if(list[i].contains("usb")){
+			    //Log.d(TAG, "usb i " + i + "list[i] "+ list[i]);
+				mUsbList.add(list[i]);
+			}
+		}
+
+		if (path.contains("extsd"))
+		{
+		    result = false;
+			for(String extsd:mExtsdList)
+			{
+				if(Environment.MEDIA_MOUNTED.equals(mStorageManager.getVolumeState(extsd))){
+					//Log.d(TAG, "mount /mnt/extsd");
+					if (path.contains(extsd))
+					{
+						result = true;
+					}else {
+	                    //Log.d(TAG, "!!! File is not existed: " + extsd);
+					} 
+		        }else {
+					//Log.d(TAG, "unmount /mnt/extsd");
+		        }
+			}
+		}
+
+		if (path.contains("usb"))
+		{
+		    result = false;
+			for(String usb:mUsbList)
+			{
+				if(Environment.MEDIA_MOUNTED.equals(mStorageManager.getVolumeState(usb))){
+					//Log.d(TAG, "mount /mnt/usb");
+					if (path.contains(usb))
+					{
+						result = true;
+					}else {
+					    //Log.d(TAG, "!!! File is not existed: " + usb);
+					} 
+		        }else {
+					//Log.d(TAG, "unmount /mnt/usb");
+		        }
+			}
+		}
+
+	    return result;
+   }
 
     private static String getBucketNameInTable(
             ContentResolver resolver, Uri tableUri, int bucketId) {

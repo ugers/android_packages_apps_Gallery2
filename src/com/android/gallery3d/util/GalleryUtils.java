@@ -96,6 +96,14 @@ public class GalleryUtils {
         TiledScreenNail.setMaxSide(maxPixels / 2);
     }
 
+    public static boolean isHighResolution(Context context) {
+        DisplayMetrics metrics = new DisplayMetrics();
+        WindowManager wm = (WindowManager)
+                context.getSystemService(Context.WINDOW_SERVICE);
+        wm.getDefaultDisplay().getMetrics(metrics);
+        return metrics.heightPixels > 2048 ||  metrics.widthPixels > 2048;
+    }
+
     public static float[] intColorToFloatARGBArray(int from) {
         return new float[] {
             Color.alpha(from) / 255f,
@@ -247,13 +255,7 @@ public class GalleryUtils {
         Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA)
                 .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                         | Intent.FLAG_ACTIVITY_NEW_TASK);
-        try {
-            context.startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            // This will only occur if Camera was disabled while Gallery is open
-            // since we cache our availability check. Just abort the attempt.
-            Log.e(TAG, "Camera activity previously detected but cannot be found", e);
-        }
+        context.startActivity(intent);
     }
 
     public static void startGalleryActivity(Context context) {
@@ -312,8 +314,14 @@ public class GalleryUtils {
     }
 
     public static int getBucketId(String path) {
-        return path.toLowerCase().hashCode();
-    }
+         int finalhash;
+		 finalhash = path.toLowerCase().hashCode();
+		 if(finalhash == 793037046)
+		 {
+			 finalhash = 1506676782;
+		 }
+		 return finalhash;
+	    }
 
     // Return the local path that matches the given bucketId. If no match is
     // found, return null

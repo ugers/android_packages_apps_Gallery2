@@ -17,11 +17,15 @@
 package com.android.gallery3d.data;
 
 import com.android.gallery3d.R;
+import com.android.gallery3d.common.Utils;
 import com.android.gallery3d.exif.ExifInterface;
 import com.android.gallery3d.exif.ExifTag;
+import com.android.gallery3d.exif.Rational;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
